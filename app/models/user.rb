@@ -18,10 +18,11 @@ class User < ApplicationRecord
   validates :username, format: { with: /\A\w+\z/}
 
   before_save :encrypt_password
-  before_validation :do_downcase
+  before_validation :downcase_for_login
 
-  def do_downcase
+  def downcase_for_login
     self.username = self.username.downcase
+    self.email = self.email.downcase
   end
 
   def encrypt_password
