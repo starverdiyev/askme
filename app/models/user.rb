@@ -21,8 +21,8 @@ class User < ApplicationRecord
   before_validation :downcase_for_login
 
   def downcase_for_login
-    self.username = self.username.downcase
-    self.email = self.email.downcase
+    username&.downcase!
+    email&.downcase!
   end
 
   def encrypt_password
