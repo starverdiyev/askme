@@ -1,7 +1,13 @@
+<h1><%= @user.name %></h1>
 
+<div>
+  <%= image_tag user_avatar(@user), alt: "[Фото]" %>
+</div>
 
-<h1>
+<h2>@<%= @user.username %></h2>
 
-  <%= @hello %>
+<a href="#" class="button button-green">Задать вопрос</a>
 
-</h1>
+<% @questions.each do |question| %>
+  <%= render partial: 'questions/question', object: question %>
+<% end %>
