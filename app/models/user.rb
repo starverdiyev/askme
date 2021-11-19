@@ -41,7 +41,7 @@ class User < ApplicationRecord
   end
 
   def self.authenticate(email, password)
-    user = find_by(email: email)
+    user = find_by(email: email.downcase!)
     return nil unless user.present?
 
     hashed_password = User.hash_to_string(
