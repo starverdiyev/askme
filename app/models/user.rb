@@ -4,12 +4,12 @@ class User < ApplicationRecord
   ITERATIONS = 20_000
   DIGEST = OpenSSL::Digest::SHA256.new
 
+  attr_accessor :password
+
   has_many :questions
 
   validates :email, :username, presence: true
   validates :email, :username, uniqueness: true
-
-  attr_accessor :password
 
   validates :password, presence: true, on: :create
   validates :password, confirmation: true
@@ -40,6 +40,8 @@ class User < ApplicationRecord
   def self.hash_to_string(password_hash)
     password_hash.unpack("H*")[0]
   end
+
+  private
 
   def downcase_for_login
     username&.downcase!
