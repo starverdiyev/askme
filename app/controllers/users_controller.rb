@@ -27,8 +27,20 @@ class UsersController < ApplicationController
     )
     @questions = [
       Question.new(text: "Как дела?", created_at: Date.parse("27.03.2016")),
+      Question.new(text: "В чем смысл жизни?", created_at: Date.parse("07.10.2021")),
+      Question.new(text: "В чем смысл жизни?", created_at: Date.parse("07.10.2021")),
+      Question.new(text: "В чем смысл жизни?", created_at: Date.parse("07.10.2021")),
       Question.new(text: "В чем смысл жизни?", created_at: Date.parse("07.10.2021"))
     ]
+
+    @answered_questions = [
+      Question.new(text: "Как дела?", created_at: Date.parse("27.03.2016")),
+      Question.new(text: "В чем смысл жизни?", created_at: Date.parse("07.10.2021"))
+    ]
+
+    @questions_amount = @questions.size
+    @answers_amount = @answered_questions.size
+    @unanswered_amount = @questions_amount - @answers_amount
 
     @new_question = Question.new
   end

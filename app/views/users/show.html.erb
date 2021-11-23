@@ -38,9 +38,9 @@
 <div class="column-3-4">
   <div class="user-questions buffer-both">
       <div class="count">
-      Всего:
-      <%= @questions.length %>
-      <%=	 inclination(@questions.length, "вопрос", "вопроса", "вопросов") %>
+      <%= "Всего: #{@questions_amount} #{inclination(@questions_amount, "вопрос", "вопроса", "вопросов")}
+      (отвечено на: #{@answers_amount} #{inclination(@answers_amount, "вопрос", "вопроса", "вопросов")},
+      без ответа: #{@unanswered_amount} #{inclination(@unanswered_amount, "вопрос", "вопроса", "вопросов")})" %>
     </div>
     <div class="questions-list">
       <% @questions.each do |question| %>
