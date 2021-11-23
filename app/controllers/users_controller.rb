@@ -26,16 +26,16 @@ class UsersController < ApplicationController
       "71269686e0f757ddb4f73614f43ae445?s=100"
     )
     @questions = [
-      Question.new(text: "Как дела?", created_at: Date.parse("27.03.2016")),
-      Question.new(text: "В чем смысл жизни?", created_at: Date.parse("07.10.2021")),
-      Question.new(text: "В чем смысл жизни?", created_at: Date.parse("07.10.2021")),
-      Question.new(text: "В чем смысл жизни?", created_at: Date.parse("07.10.2021")),
-      Question.new(text: "В чем смысл жизни?", created_at: Date.parse("07.10.2021"))
+      Question.new(text: "Столица Египта?", created_at: Date.parse("27.03.2016")),
+      Question.new(text: "Кто создал Google?", created_at: Date.parse("07.10.2021")),
+      Question.new(text: "В каком году была высадка на Марс?", created_at: Date.parse("07.10.2021")),
+      Question.new(text: "Гитхаб или Гитлаб?", created_at: Date.parse("07.10.2021")),
+      Question.new(text: "Лучший язык программирования?", created_at: Date.parse("07.10.2021"))
     ]
 
     @answered_questions = [
-      Question.new(text: "Как дела?", created_at: Date.parse("27.03.2016")),
-      Question.new(text: "В чем смысл жизни?", created_at: Date.parse("07.10.2021"))
+      Question.new(text: "Гитхаб или Гитлаб?", created_at: Date.parse("27.03.2016")),
+      Question.new(text: "Лучший язык программирования?", created_at: Date.parse("07.10.2021"))
     ]
 
     @questions_amount = @questions.size
