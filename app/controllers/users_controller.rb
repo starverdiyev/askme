@@ -13,8 +13,8 @@ class UsersController < ApplicationController
     @user = User.find params[:id]
 
     @questions = @user.questions
-    @questions_amount = @questions.size
-    @answers_amount = @questions.size(&:answer)
+    @questions_amount = @questions.count
+    @answers_amount = @questions.count(&:answer)
     @unanswered_amount = @questions_amount - @answers_amount
 
     @new_question = Question.new
