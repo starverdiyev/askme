@@ -1,15 +1,6 @@
 class UsersController < ApplicationController
   def index
-    @users = [
-      User.new(
-        id: 1,
-        name: "Vadim",
-        username: "installero",
-        avatar_url: "https://secure.gravatar.com/avatar/" \
-          '71269686e0f757ddb4f73614f43ae445?s=100'
-      ),
-      User.new(id: 2, name: "Misha", username: "aristofun")
-    ]
+    @users = User.all
   end
 
   def new
@@ -19,27 +10,11 @@ class UsersController < ApplicationController
   end
 
   def show
-    @user = User.new(
-      name: "Vadim",
-      username: "installero",
-      avatar_url: "https://secure.gravatar.com/avatar/" \
-      "71269686e0f757ddb4f73614f43ae445?s=100"
-    )
-    @questions = [
-      Question.new(text: "Столица Египта?", created_at: Date.parse("27.03.2016")),
-      Question.new(text: "Кто создал Google?", created_at: Date.parse("07.10.2021")),
-      Question.new(text: "В каком году была высадка на Марс?", created_at: Date.parse("07.10.2021")),
-      Question.new(text: "Гитхаб или Гитлаб?", created_at: Date.parse("07.10.2021")),
-      Question.new(text: "Лучший язык программирования?", created_at: Date.parse("07.10.2021"))
-    ]
+    @user = User.find params[:id]
 
-    @answered_questions = [
-      Question.new(text: "Гитхаб или Гитлаб?", created_at: Date.parse("27.03.2016")),
-      Question.new(text: "Лучший язык программирования?", created_at: Date.parse("07.10.2021"))
-    ]
-
+    @questions = @user.questions
     @questions_amount = @questions.size
-    @answers_amount = @answered_questions.size
+    @answers_amount = @questions.size(&:answer)
     @unanswered_amount = @questions_amount - @answers_amount
 
     @new_question = Question.new
