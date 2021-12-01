@@ -49,3 +49,4 @@ class QuestionsController < ApplicationController
       params.require(:question).permit(:user_id, :text)
     end
   end
+end
